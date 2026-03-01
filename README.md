@@ -1,53 +1,78 @@
-# 🏠 Property Hub
+# Property Hub
 
-A modern real estate web application built with **Angular**. Property Hub enables users to browse, search, and manage property listings with an intuitive and responsive interface.
+Welcome to the Property Hub project, an Angular-based real estate website designed to provide users with an easy way to explore, buy, and sell real estate properties.
 
-## 📋 Table of Contents
-
+## Table of Contents
+- [Introduction](#introduction)
 - [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Folder Structure](#folder-structure)
 - [Usage](#usage)
-- [Development](#development)
-- [Building for Production](#building-for-production)
 - [Contributing](#contributing)
 - [License](#license)
 
-## ✨ Features
+## Introduction
+Property Hub is a fully-functional real estate web application built with Angular. It aims to offer a smooth user experience with a responsive design, ensuring accessibility on various devices.
 
-- **Property Search & Filtering** - Search properties by location, price, type, and amenities
-- **Detailed Listings** - View comprehensive property information with high-quality images
-- **User Authentication** - Secure login and registration system
-- **Favorites** - Save favorite properties for later viewing
-- **Responsive Design** - Optimized for desktop, tablet, and mobile devices
-- **Advanced Map Integration** - Interactive map view of property locations
-- **Quick Comparison** - Compare multiple properties side by side
+## Features
+- **User Authentication**: Sign up or log in to access personalized features.
+- **Property Listings**: Browse, filter, and search for properties.
+- **Property Details**: Detailed view of each property including photos, descriptions, and pricing.
+- **User Dashboard**: Manage your listings and profile settings.
+- **Admin Panel**: Admin functionality to manage users and listings.
 
-## 🛠️ Tech Stack
+## Technologies Used
+- Angular 12
+- TypeScript
+- HTML5 & CSS3
+- Bootstrap
+- Firebase for backend
 
-- **Frontend Framework**: [Angular](https://angular.io/) (Latest LTS)
-- **Language**: TypeScript
-- **Styling**: CSS3 / SCSS
-- **State Management**: RxJS / NgRx (optional)
-- **HTTP Client**: Angular HttpClient
-- **Routing**: Angular Router
-- **UI Components**: Angular Material (optional)
-- **Build Tool**: Angular CLI
-- **Package Manager**: npm
+## Getting Started
+To get a local copy up and running, follow these steps:
 
-## 📦 Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (v16 or higher) - [Download](https://nodejs.org/)
-- **npm** (v8 or higher) - Comes with Node.js
-- **Angular CLI** - Install globally: `npm install -g @angular/cli`
-
-## 🚀 Installation
-
-1. **Clone the repository**
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/limkhysok/property-hub.git
+   ```
+2. **Navigate to the project directory**:
+   ```bash
    cd property-hub
+   ```
+3. **Install the dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Run the application**:
+   ```bash
+   ng serve
+   ```
+   Open your browser and navigate to `http://localhost:4200`.
+
+## Folder Structure
+```
+├── src
+│   ├── app
+│   ├── assets
+│   ├── environments
+│   ├── index.html
+│   └── main.ts
+├── angular.json
+├── package.json
+└── README.md
+```
+
+## Usage
+1. Register or log in to start using the application.
+2. Browse properties using filters and search.
+3. Access your dashboard to manage personal listings or profile settings.
+
+## Contributing
+Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+- Special thanks to the Angular community and all contributors to the project.
