@@ -1,0 +1,56 @@
+.max-width-300 {
+    max-width: 300px;
+}
+
+.offset-navbar {
+    top: 100px;
+}
+
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+.wh-35 {
+    width: 35px;
+    height: 35px;
+}
+
+.wh-50 {
+    width: 50px;
+    height: 50px;
+}
+
+.property-card {
+    cursor: pointer;
+    background: white;
+}
+
+.property-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.property-image {
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-image {
+    transform: scale(1.05);
+}
+
+.transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-link {
+    color: var(--dark-color);
+    font-weight: 500;
+    border-radius: 50% !important;
+}
+
+.page-item.active .page-link {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}

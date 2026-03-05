@@ -1,0 +1,73 @@
+.ls-1 {
+    letter-spacing: 1.5px;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+}
+
+.wh-30 {
+    width: 30px;
+    height: 30px;
+}
+
+.wh-50 {
+    width: 50px;
+    height: 50px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(37, 99, 235, 0.02);
+}
+
+.table th {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.glass-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.badge {
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.bg-primary-subtle {
+    background-color: rgba(37, 99, 235, 0.1) !important;
+}
+
+.bg-success-subtle {
+    background-color: rgba(25, 135, 84, 0.1) !important;
+}
+
+.bg-warning-subtle {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+}
+
+.bg-info-subtle {
+    background-color: rgba(13, 202, 240, 0.1) !important;
+}
+
+.text-success {
+    color: #198754 !important;
+}
+
+.text-warning {
+    color: #f59e0b !important;
+}
+
+.text-info {
+    color: #0dcaf0 !important;
+}
+
+.pagination .page-link {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

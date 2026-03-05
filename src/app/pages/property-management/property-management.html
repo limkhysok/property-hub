@@ -1,0 +1,149 @@
+<div class="container-fluid py-5 bg-light min-vh-100">
+    <div class="container">
+        <div class="row mb-5 align-items-end">
+            <div class="col-md-6">
+                <h6 class="text-primary fw-bold text-uppercase mb-2 ls-1">Admin Dashboard</h6>
+                <h1 class="fw-bold display-5 mb-0">Property <span class="text-gradient">Management</span></h1>
+            </div>
+            <div class="col-md-6 text-md-end mt-4 mt-md-0">
+                <button class="btn btn-premium px-4 py-2 d-flex align-items-center ms-md-auto">
+                    <i class="bi bi-plus-lg me-2"></i> Add New Property
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="glass-card p-4 rounded-4 border-0 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div
+                            class="icon-box wh-50 bg-primary-subtle rounded-3 me-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-houses text-primary fs-4"></i>
+                        </div>
+                        <h6 class="text-secondary fw-bold mb-0">Total Properties</h6>
+                    </div>
+                    <h2 class="fw-bold mb-0">124</h2>
+                    <small class="text-success fw-medium"><i class="bi bi-arrow-up"></i> 12% from last month</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4 rounded-4 border-0 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div
+                            class="icon-box wh-50 bg-success-subtle rounded-3 me-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-currency-dollar text-success fs-4"></i>
+                        </div>
+                        <h6 class="text-secondary fw-bold mb-0">Sold Properties</h6>
+                    </div>
+                    <h2 class="fw-bold mb-0">86</h2>
+                    <small class="text-success fw-medium"><i class="bi bi-arrow-up"></i> 5% from last month</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4 rounded-4 border-0 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div
+                            class="icon-box wh-50 bg-warning-subtle rounded-3 me-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-clock text-warning fs-4"></i>
+                        </div>
+                        <h6 class="text-secondary fw-bold mb-0">Pending Reviews</h6>
+                    </div>
+                    <h2 class="fw-bold mb-0">12</h2>
+                    <small class="text-danger fw-medium"><i class="bi bi-arrow-down"></i> 2% from last month</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4 rounded-4 border-0 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div
+                            class="icon-box wh-50 bg-info-subtle rounded-3 me-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people text-info fs-4"></i>
+                        </div>
+                        <h6 class="text-secondary fw-bold mb-0">Agent Inquiries</h6>
+                    </div>
+                    <h2 class="fw-bold mb-0">342</h2>
+                    <small class="text-success fw-medium"><i class="bi bi-arrow-up"></i> 18% from last month</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Management Table -->
+        <div class="glass-card rounded-4 border-0 overflow-hidden shadow-sm">
+            <div class="p-4 border-bottom bg-white d-flex justify-content-between align-items-center">
+                <h5 class="fw-bold mb-0">Active Listings</h5>
+                <div class="d-flex gap-2">
+                    <input type="text"
+                        class="form-control form-control-sm rounded-3 shadow-none border-light-subtle px-3"
+                        placeholder="Search listings...">
+                    <button class="btn btn-light btn-sm border fw-medium px-3">Export</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4 border-0 py-3 small text-uppercase text-secondary fw-bold">Property Details
+                            </th>
+                            <th class="border-0 py-3 small text-uppercase text-secondary fw-bold">Location</th>
+                            <th class="border-0 py-3 small text-uppercase text-secondary fw-bold">Price</th>
+                            <th class="border-0 py-3 small text-uppercase text-secondary fw-bold">Status</th>
+                            <th class="border-0 py-3 small text-uppercase text-secondary fw-bold">Views</th>
+                            <th class="pe-4 border-0 py-3 small text-uppercase text-secondary fw-bold text-end">Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (listing of dummyListings; track listing.id) {
+                        <tr>
+                            <td class="ps-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <img [src]="listing.image" class="rounded-3 me-3" width="60" height="45"
+                                        style="object-fit: cover;">
+                                    <div>
+                                        <h6 class="fw-bold mb-0 text-dark">{{ listing.title }}</h6>
+                                        <small class="text-secondary">{{ listing.type }}</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3 text-secondary small">{{ listing.location }}</td>
+                            <td class="py-3 fw-bold text-primary">${{ listing.price | number }}</td>
+                            <td class="py-3">
+                                <span class="badge rounded-pill px-3 py-2 fw-medium" [ngClass]="{
+                      'bg-success-subtle text-success': listing.status === 'Active',
+                      'bg-warning-subtle text-warning': listing.status === 'Pending',
+                      'bg-info-subtle text-info': listing.status === 'Sold'
+                    }">
+                                    {{ listing.status }}
+                                </span>
+                            </td>
+                            <td class="py-3 text-secondary">{{ listing.views }}</td>
+                            <td class="pe-4 py-3 text-end">
+                                <button class="btn btn-light btn-sm rounded-3 me-2 border"><i
+                                        class="bi bi-pencil"></i></button>
+                                <button class="btn btn-light btn-sm rounded-3 border text-danger"><i
+                                        class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 border-top bg-white d-flex justify-content-between align-items-center">
+                <small class="text-secondary">Showing 10 of 124 listings</small>
+                <nav>
+                    <ul class="pagination pagination-sm mb-0 gap-1">
+                        <li class="page-item disabled"><a class="page-link border-0 bg-transparent text-secondary"><i
+                                    class="bi bi-chevron-left"></i></a></li>
+                        <li class="page-item active"><a
+                                class="page-link rounded-circle wh-30 px-2 py-1 h-auto text-center">1</a></li>
+                        <li class="page-item"><a
+                                class="page-link rounded-circle wh-30 px-2 py-1 h-auto text-center">2</a></li>
+                        <li class="page-item"><a class="page-link border-0 bg-transparent text-dark"><i
+                                    class="bi bi-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

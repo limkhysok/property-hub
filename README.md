@@ -1,78 +1,59 @@
-# Property Hub
+# PropertyHub
 
-Welcome to the Property Hub project, an Angular-based real estate website designed to provide users with an easy way to explore, buy, and sell real estate properties.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Folder Structure](#folder-structure)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+## Development server
 
-## Introduction
-Property Hub is a fully-functional real estate web application built with Angular. It aims to offer a smooth user experience with a responsive design, ensuring accessibility on various devices.
+To start a local development server, run:
 
-## Features
-- **User Authentication**: Sign up or log in to access personalized features.
-- **Property Listings**: Browse, filter, and search for properties.
-- **Property Details**: Detailed view of each property including photos, descriptions, and pricing.
-- **User Dashboard**: Manage your listings and profile settings.
-- **Admin Panel**: Admin functionality to manage users and listings.
-
-## Technologies Used
-- Angular v21
-- TypeScript
-- HTML5 & CSS3
-- Bootstrap
-- Firebase for backend
-
-## Getting Started
-To get a local copy up and running, follow these steps:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/limkhysok/property-hub.git
-   ```
-2. **Navigate to the project directory**:
-   ```bash
-   cd property-hub
-   ```
-3. **Install the dependencies**:
-   ```bash
-   npm install
-   ```
-4. **Run the application**:
-   ```bash
-   ng serve
-   ```
-   Open your browser and navigate to `http://localhost:4200`.
-
-## Folder Structure
-```
-├── src
-│   ├── app
-│   ├── assets
-│   ├── environments
-│   ├── index.html
-│   └── main.ts
-├── angular.json
-├── package.json
-└── README.md
+```bash
+ng serve
 ```
 
-## Usage
-1. Register or log in to start using the application.
-2. Browse properties using filters and search.
-3. Access your dashboard to manage personal listings or profile settings.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Contributing
-Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
+## Code scaffolding
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## Acknowledgements
-- Special thanks to the Angular community and all contributors to the project.
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
