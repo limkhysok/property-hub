@@ -1,67 +1,75 @@
-<footer class="bg-white border-top border-dark-blue py-5 mt-5">
+<footer class="bg-white mt-5 mb-5">
     <div class="container-fluid max-width-1400 px-0">
-        <div class="row g-0 border-bottom border-dark-blue reveal-up">
-            <div class="col-lg-5 p-5 border-right-lg">
-                <div class="d-flex align-items-center mb-4">
-                    <i class="bi bi-houses-fill text-primary fs-3 me-3"></i>
-                    <span class="fw-bold fs-4 text-dark-blue text-uppercase ls-1">Property Hub</span>
+
+        <!-- 📐 FOOTER BENTO GRID -->
+        <div class="footer-bento reveal-up">
+
+            <!-- BRANDING TILE -->
+            <div class="footer-tile footer-main">
+                <div class="footer-brand-title mb-4">
+                    Property <br> <span class="text-primary">Hub.</span>
                 </div>
-                <p class="text-muted fs-5 opacity-75 mb-5 w-75">Your trusted ecosystem for acquiring and managing
-                    high-yield real estate assets in Cambodia.</p>
-                <div class="d-flex gap-4">
-                    <a href="#" class="text-dark-blue fs-4"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-dark-blue fs-4"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="text-dark-blue fs-4"><i class="bi bi-instagram"></i></a>
+                <p class="text-muted fw-medium fs-5 w-75 opacity-75 mb-5">
+                    Architecting the future of real estate acquisition and asset management in Cambodia.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <a href="https://github.com/limkhysok" target="_blank" class="social-box" title="GitHub"><i
+                            class="bi bi-github"></i></a>
+                    <a href="https://t.me/soklimkhy" target="_blank" class="social-box" title="Telegram"><i
+                            class="bi bi-telegram"></i></a>
+                    <a href="https://www.linkedin.com/in/limkhysok/" target="_blank" class="social-box"
+                        title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
 
-            <div class="col-lg-7">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4 p-5 border-left-md">
-                        <h6 class="text-muted fw-bold text-uppercase ls-2 mb-4">Explore</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-3"><a routerLink="/"
-                                    class="text-dark-blue fw-bold text-decoration-none opacity-50 hover-opacity-100">Home</a>
-                            </li>
-                            <li class="mb-3"><a routerLink="/properties"
-                                    class="text-dark-blue fw-bold text-decoration-none opacity-50 hover-opacity-100">Properties</a>
-                            </li>
-                            <li class="mb-3"><a routerLink="/management"
-                                    class="text-dark-blue fw-bold text-decoration-none opacity-50 hover-opacity-100">Management</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 p-5 border-left-md">
-                        <h6 class="text-muted fw-bold text-uppercase ls-2 mb-4">Support</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-3"><a href="#"
-                                    class="text-dark-blue fw-bold text-decoration-none opacity-50 hover-opacity-100">Contact
-                                    Us</a></li>
-                            <li class="mb-3"><a href="#"
-                                    class="text-secondary text-decoration-none opacity-50 hover-opacity-100">FAQ</a>
-                            </li>
-                            <li class="mb-3"><a href="#"
-                                    class="text-secondary text-decoration-none opacity-50 hover-opacity-100">Privacy
-                                    Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 p-5 border-left-md bg-light">
-                        <h6 class="text-muted fw-bold text-uppercase ls-2 mb-4">Subscribe</h6>
-                        <p class="text-muted small mb-4">Get high-yield investment updates directly in your inbox.</p>
-                        <div class="input-group border border-dark-blue p-1 bg-white">
-                            <input type="text" class="form-control border-0 bg-transparent shadow-none"
-                                placeholder="Email...">
-                            <button class="btn btn-dark-blue rounded-0 px-3 py-2 border-0 fw-bold">JOIN</button>
-                        </div>
-                    </div>
+            <!-- QUICK LINKS TILE -->
+            <div class="footer-tile footer-link-group">
+                <h6 class="text-muted fw-bold text-uppercase ls-2 mb-4">01. Explore</h6>
+                <nav class="d-flex flex-column">
+                    <a routerLink="/" class="footer-link">Portfolio</a>
+                    <a routerLink="/properties" class="footer-link">Listings</a>
+                    <a routerLink="/management" class="footer-link">Dashboard</a>
+                    <a href="#" class="footer-link">New Launches</a>
+                </nav>
+            </div>
+
+            <!-- SUPPORT TILE -->
+            <div class="footer-tile footer-link-group">
+                <h6 class="text-muted fw-bold text-uppercase ls-2 mb-4">02. Protocol</h6>
+                <nav class="d-flex flex-column">
+                    <a href="#" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="#" class="footer-link">Help Center</a>
+                </nav>
+            </div>
+
+            <!-- NEWSLETTER TILE (ACCENT) -->
+            <div class="footer-tile bg-dark-blue newsletter-box h-100 footer-news">
+                <h6 class="text-white-50 fw-bold text-uppercase ls-2 mb-4">03. Intelligence</h6>
+                <p class="text-white opacity-75 small mb-4">
+                    Subscribe to receive high-yield market signals and exclusive early access to premium estates.
+                </p>
+                <div class="newsletter-field mt-auto">
+                    <input type="email" class="newsletter-input" placeholder="Join the network (email)...">
+                    <button class="btn btn-outline-light rounded-0 w-100 mt-4 fw-bold ls-1 p-3 border-opacity-25">
+                        SUBSCRIBE <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
                 </div>
+            </div>
+
+        </div>
+
+        <!-- ⚖️ COPYRIGHT STRIP -->
+        <div
+            class="copyright-bar d-flex flex-column flex-md-row justify-content-between align-items-center reveal-up delay-1">
+            <div class="text-muted small fw-bold text-uppercase ls-1 mb-3 mb-md-0">
+                &copy; 2026 PROPERTY HUB. ALL SYSTEMS OPERATIONAL.
+            </div>
+            <div class="text-muted small fw-bold text-uppercase ls-1">
+                CAMBODIA'S PREMIER ESTATE ECOSYSTEM
             </div>
         </div>
 
-        <div class="p-5 d-flex flex-column flex-md-row justify-content-between align-items-center reveal-up">
-            <div class="text-muted small fw-bold uppercase ls-1 mb-3 mb-md-0">&copy; 2026 PROPERTY HUB. SEAMLESS ESTATE
-                SOLUTIONS.</div>
-            <div class="text-muted small fw-bold uppercase ls-1">BUILT IN CAMBODIA FOR THE WORLD.</div>
-        </div>
     </div>
 </footer>

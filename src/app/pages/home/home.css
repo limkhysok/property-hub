@@ -147,7 +147,7 @@
 
 /* 📊 STATS TILES */
 .stat-tile {
-    grid-column: span 3;
+    grid-column: span 4;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -180,11 +180,6 @@
 }
 
 /* 🏷️ CATEGORY TILES */
-.cat-tile {
-    grid-column: span 3;
-    justify-content: space-between;
-}
-
 .cat-icon {
     font-size: 2.5rem;
     color: var(--dark-blue);
@@ -193,6 +188,78 @@
 .cat-name {
     font-size: 1.5rem;
     font-weight: 700;
+    color: var(--dark-blue);
+}
+
+/* 🖼️ CATEGORY IMAGE TILES */
+.cat-image-tile {
+    padding: 0;
+    grid-column: span 6;
+    /* 2 per row for 'Bigger' look */
+    cursor: pointer;
+    position: relative;
+    height: 450px;
+    /* Increased height for bigger look */
+}
+
+.cat-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(17, 24, 39, 0.8), transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    transition: all 0.5s ease;
+}
+
+.cat-image-tile:hover .cat-overlay {
+    background: linear-gradient(to top, rgba(37, 99, 235, 0.9), transparent);
+}
+
+.cat-img-box {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cat-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cat-image-tile:hover .cat-img-box img {
+    transform: scale(1.1);
+}
+
+.cat-title-white {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.cat-count {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* 🏢 PARTNER ICONS IN STATS */
+.partner-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    opacity: 0.6;
+}
+
+.partner-icons i {
+    font-size: 1.5rem;
     color: var(--dark-blue);
 }
 
@@ -226,18 +293,13 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .hero-tile {
-        grid-column: span 2;
-    }
-
-    .search-tile {
-        grid-column: span 2;
-    }
-
+    .hero-tile,
+    .search-tile,
     .stat-tile,
-    .image-tile,
-    .cat-tile {
-        grid-column: span 1;
+    .cat-image-tile {
+        grid-column: span 2;
+        height: auto;
+        min-height: 300px;
     }
 }
 
@@ -249,9 +311,10 @@
     .hero-tile,
     .search-tile,
     .stat-tile,
-    .image-tile,
-    .cat-tile {
+    .cat-image-tile {
         grid-column: span 1;
+        height: auto;
+        min-height: 250px;
     }
 
     .hero-title {

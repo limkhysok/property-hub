@@ -1,59 +1,78 @@
-# PropertyHub
+# 🏠 Property Hub Cambodia
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+A modern Angular 21 web application for discovering and listing real estate properties across all 25 provinces of Cambodia.
 
-## Development server
+## ✨ Features
 
-To start a local development server, run:
+- **Home** — Hero section with animated title, smart property search (city/district/type/budget) with Cambodia province data
+- **Properties** — Full listing page with 200 real properties (100 sale, 100 rent), live filtering by province, district, type, bedrooms, price range + sort
+- **Promotions** — Active & upcoming promotions with animated bento layout and archived carousel
+- **About Us** — Company story, stats, team member cards
+- **Contact** — Contact form with office location details
+- **Property Management** — Agent dashboard for managing personal listings
 
-```bash
-ng serve
+## 🛠️ Tech Stack
+
+| Technology | Version |
+|---|---|
+| Angular | 21 |
+| Bootstrap | 5.3 |
+| Bootstrap Icons | 1.13 |
+| TypeScript | 5.9 |
+| DM Sans (Google Fonts) | — |
+
+## 📦 Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── navbar/         # Global navigation bar
+│   │   └── footer/         # Global footer
+│   ├── pages/
+│   │   ├── home/           # Landing page
+│   │   ├── property-list/  # Property search & listing
+│   │   ├── promotion/      # Deals & promotions
+│   │   ├── about/          # About us page
+│   │   ├── contact/        # Contact page
+│   │   └── property-management/ # Agent dashboard
+│   ├── app.routes.ts       # Lazy-loaded client-side routes
+│   ├── app.config.ts       # App config with preloading strategy
+│   └── app.ts              # Root component with reveal animations
+├── styles.css              # Global design system (tokens, utilities)
+└── main.ts                 # Bootstrap entry point
+data/
+├── cambodia_25_provinces_districts.json  # Province/district data
+├── propertiesforsale.json                # 100 sale listings
+└── propertiesforrent.json                # 100 rent listings
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🚀 Getting Started
 
 ```bash
-ng generate component component-name
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+# → http://localhost:4200
+
+# Build for production
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🌐 Deploying to Vercel
 
-```bash
-ng generate --help
-```
+1. Push the project to a GitHub repository
+2. Import into [Vercel](https://vercel.com) — it will auto-detect `vercel.json`
+3. Vercel will run `npm run build` and serve from `dist/property-hub/browser`
+4. All routes are rewritten to `index.html` for SPA deep-link support
 
-## Building
+**No environment variables required** — all data is local JSON.
 
-To build the project run:
+## 🎨 Design System
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Architecture**: Sharp-edged bento grid layout (no border-radius)
+- **Typography**: DM Sans — clean, geometric, modern
+- **Colors**: Navy blue (`#111827`) + Electric blue (`#2563EB`)
+- **Animations**: Intersection Observer scroll reveals, CSS micro-interactions

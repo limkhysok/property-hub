@@ -11,11 +11,17 @@
                         {{ title }}
                     </span>
                 </div>
-                <br>Dream Home.
+
             </h1>
             <p class="mt-4 lead text-muted fw-medium w-75 opacity-75">
                 Modern solutions for exploring premium properties in the heart of Cambodia.
             </p>
+            <div class="mt-5">
+                <button class="btn btn-dark-blue rounded-0 px-5 py-3 fw-bold ls-1 d-inline-flex align-items-center"
+                    routerLink="/properties">
+                    START YOUR SEARCH <i class="bi bi-arrow-down-right ms-3 fs-5"></i>
+                </button>
+            </div>
         </div>
 
         <!-- 🔍 SEARCH CONSOLE BENTO -->
@@ -93,58 +99,108 @@
                     </div>
                 </div>
 
-                <button class="btn btn-dark w-100 py-3 rounded-0 border-0 fw-bold ls-1 mt-auto">
+                <button class="btn btn-dark w-100 py-3 rounded-0 border-0 fw-bold ls-1 mt-auto"
+                    (click)="navigateToProperties()">
                     SEARCH PROPERTIES <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
         </div>
 
-        <!-- 📊 STATS BOX 1 -->
-        <div class="bento-item stat-tile reveal-up delay-2">
-            <div class="stat-num">15+</div>
-            <div class="stat-label">Years of Experience</div>
+        <!-- 📊 ROW 1: STATS [1,1,1] -->
+        <div class="bento-item stat-tile reveal-up delay-1">
+            <div class="stat-num text-primary">15+</div>
+            <div class="stat-label">Years of Tenure</div>
+            <div class="partner-icons d-flex justify-content-center">
+                <i class="bi bi-bank"></i>
+                <i class="bi bi-shield-check"></i>
+                <i class="bi bi-building-check"></i>
+                <i class="bi bi-award"></i>
+            </div>
         </div>
 
-        <!-- 🖼️ IMAGE BOX 1 -->
-        <div class="bento-item image-tile reveal-up delay-1">
-            <img src="https://images.unsplash.com/photo-1628592102751-ba83b03bc677?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Luxury Real Estate" class="img-fluid">
-        </div>
-
-        <!-- 📊 STATS BOX 2 -->
         <div class="bento-item stat-tile reveal-up delay-2">
-            <div class="stat-num">2k+</div>
+            <div class="d-flex align-items-center justify-content-center gap-2">
+                <div class="stat-num text-dark-blue">2k+</div>
+                <i class="bi bi-arrow-up-right text-success fs-3"></i>
+            </div>
             <div class="stat-label">Active Listings</div>
         </div>
 
-        <!-- 🏠 CATEGORY BENTO: CONDO -->
-        <div class="bento-item cat-tile reveal-up delay-3">
-            <div class="cat-icon"><i class="bi bi-building"></i></div>
-            <div class="cat-name">Condominiums</div>
-        </div>
-
-        <!-- 🏠 CATEGORY BENTO: LAND -->
-        <div class="bento-item cat-tile reveal-up delay-4">
-            <div class="cat-icon"><i class="bi bi-tree"></i></div>
-            <div class="cat-name">Premium Land</div>
-        </div>
-
-        <!-- 🖼️ IMAGE BOX 2 -->
-        <div class="bento-item image-tile reveal-up delay-5">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Phnom Penh" class="img-fluid">
-        </div>
-
-        <!-- 🏷️ CATEGORY BENTO: BOREY -->
-        <div class="bento-item cat-tile reveal-up delay-2">
-            <div class="cat-icon"><i class="bi bi-houses"></i></div>
-            <div class="cat-name">New Borey</div>
-        </div>
-
-        <!-- 📊 STATS BOX 3 -->
         <div class="bento-item stat-tile reveal-up delay-3">
-            <div class="stat-num">25+</div>
+            <div class="d-flex align-items-center justify-content-center gap-3 mb-2">
+                <i class="bi bi-people-fill text-primary fs-1"></i>
+                <div class="stat-num text-dark-blue">25+</div>
+            </div>
             <div class="stat-label">Certified Agents</div>
+        </div>
+
+        <!-- 🖼️ ROW 2: CATEGORIES (BIGGER) -->
+        <div class="bento-item cat-image-tile reveal-up delay-1">
+            <div class="cat-img-box">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Condo">
+            </div>
+            <div class="cat-overlay">
+                <span class="cat-count">480+ UNITS</span>
+                <h3 class="cat-title-white">Luxury Condos</h3>
+            </div>
+        </div>
+
+        <div class="bento-item cat-image-tile reveal-up delay-2">
+            <div class="cat-img-box">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Villa">
+            </div>
+            <div class="cat-overlay">
+                <span class="cat-count">120+ ESTATES</span>
+                <h3 class="cat-title-white">Modern Villas</h3>
+            </div>
+        </div>
+
+        <!-- 🖼️ ROW 3: CATEGORIES (BIGGER) -->
+        <div class="bento-item cat-image-tile reveal-up delay-3">
+            <div class="cat-img-box">
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Apartment">
+            </div>
+            <div class="cat-overlay">
+                <span class="cat-count">850+ ROOMS</span>
+                <h3 class="cat-title-white">Urban Apartments</h3>
+            </div>
+        </div>
+
+        <div class="bento-item cat-image-tile reveal-up delay-4">
+            <div class="cat-img-box">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Borey">
+            </div>
+            <div class="cat-overlay">
+                <span class="cat-count">25+ PROJECTS</span>
+                <h3 class="cat-title-white">New Borey</h3>
+            </div>
+        </div>
+
+        <!-- �️ ROW 4: CATEGORIES (BIGGER) -->
+        <div class="bento-item cat-image-tile reveal-up delay-5">
+            <div class="cat-img-box">
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="House">
+            </div>
+            <div class="cat-overlay">
+                <span class="cat-count">1.2k+ HOMES</span>
+                <h3 class="cat-title-white">Private Houses</h3>
+            </div>
+        </div>
+
+        <div class="bento-item cat-image-tile reveal-up delay-1">
+            <div class="cat-img-box">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Commercial">
+            </div>
+            <div class="cat-overlay">
+                <span class="cat-count">95+ OFFICES</span>
+                <h3 class="cat-title-white">Commercial Hubs</h3>
+            </div>
         </div>
 
     </div>

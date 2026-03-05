@@ -1,122 +1,279 @@
 <div class="property-list-canvas py-5">
     <div class="container-fluid max-width-1400 px-0">
 
-        <!-- 🚀 EXPLORE HEADER -->
+        <!-- 🚀 HEADER -->
         <div class="list-header bg-white mb-0 reveal-up">
-            <div class="row align-items-end">
-                <div class="col-lg-6">
-                    <span
-                        class="badge bg-primary-soft text-primary px-3 py-2 mb-3 rounded-0 border border-primary">PREMIUM
-                        SELECTION</span>
-                    <h1 class="display-3 fw-bold mb-0 text-dark-blue">Explore <span
-                            class="text-primary italic">Properties</span></h1>
-                    <p class="text-muted fs-5 mt-4 opacity-75 mb-0">Discover your next future property from our curated
-                        collection in Cambodia.</p>
-                </div>
-                <div class="col-lg-6 text-lg-end mt-4">
-                    <div class="d-inline-flex gap-3 bg-light p-2 border border-dark-blue">
-                        <div class="input-group search-input-sharp">
-                            <span class="input-group-text bg-transparent border-0"><i
-                                    class="bi bi-search text-dark-blue"></i></span>
-                            <input type="text" class="form-control bg-transparent border-0 shadow-none ps-0 fw-bold"
-                                placeholder="Search locality...">
-                        </div>
-                        <button class="btn btn-sharp active">Filters <i class="bi bi-sliders ms-2"></i></button>
+
+            <!-- Top Row: Title + Search + Sort -->
+            <div class="d-flex align-items-center justify-content-between gap-4 flex-wrap">
+
+                <!-- Left: Title -->
+                <div class="d-flex align-items-center gap-4">
+                    <div>
+                        <span class="header-eyebrow">CAMBODIAN PROPERTIES</span>
+                        <h1 class="header-title mb-0">
+                            Explore <span class="text-primary italic">Properties</span>
+                        </h1>
+                    </div>
+                    <div class="vr-divider d-none d-lg-block"></div>
+                    <div class="d-none d-lg-block">
+                        <div class="header-count">{{ filteredProperties().length }}</div>
+                        <div class="header-count-label">LISTINGS FOUND</div>
                     </div>
                 </div>
+
+                <!-- Right: Search only -->
+                <div class="d-flex align-items-center gap-2 flex-grow-1" style="max-width: 480px;">
+                    <div class="d-flex align-items-center border border-dark-blue bg-light flex-grow-1 px-3"
+                        style="height: 48px;">
+                        <i class="bi bi-search text-dark-blue me-2 opacity-50"></i>
+                        <input type="text" class="form-control bg-transparent border-0 shadow-none ps-0 fw-bold p-0"
+                            style="height: 100%;" placeholder="Search title, location, type..." [value]="searchQuery()"
+                            (input)="searchQuery.set($any($event.target).value); onFilterChange()">
+                        <button *ngIf="searchQuery()" class="btn btn-link p-0 text-muted ms-2"
+                            (click)="searchQuery.set(''); onFilterChange()">
+                            <i class="bi bi-x-lg" style="font-size: 0.8rem;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LISTING TYPE TABS -->
+            <div class="listing-tabs">
+                <button class="tab-btn-main" [class.active]="listingTab() === 'all'" (click)="setTab('all')">
+                    <i class="bi bi-grid-3x3-gap me-2"></i>ALL
+                    <span class="tab-count">{{ allSale.length + allRent.length }}</span>
+                </button>
+                <button class="tab-btn-main" [class.active]="listingTab() === 'sale'" (click)="setTab('sale')">
+                    <i class="bi bi-house-check me-2"></i>FOR SALE
+                    <span class="tab-count">{{ allSale.length }}</span>
+                </button>
+                <button class="tab-btn-main" [class.active]="listingTab() === 'rent'" (click)="setTab('rent')">
+                    <i class="bi bi-key me-2"></i>FOR RENT
+                    <span class="tab-count">{{ allRent.length }}</span>
+                </button>
+            </div>
+
+            <!-- 🏷️ ACTIVE FILTER PILLS -->
+            <div class="active-filters-bar mt-4" *ngIf="hasActiveFilters()">
+                <span class="text-muted small fw-bold text-uppercase ls-1 me-2">Filters:</span>
+                <span class="filter-pill" *ngIf="filterProvince()">
+                    <i class="bi bi-geo-alt-fill text-primary me-1"></i> {{ filterProvince() }}
+                    <button class="pill-remove" (click)="filterProvince.set(''); filterDistrict.set('')">×</button>
+                </span>
+                <span class="filter-pill" *ngIf="filterDistrict()">
+                    <i class="bi bi-map text-primary me-1"></i> {{ filterDistrict() }}
+                    <button class="pill-remove" (click)="filterDistrict.set('')">×</button>
+                </span>
+                <span class="filter-pill" *ngIf="filterType()">
+                    <i class="bi bi-house-fill text-primary me-1"></i> {{ filterType() }}
+                    <button class="pill-remove" (click)="filterType.set('')">×</button>
+                </span>
+                <span class="filter-pill" *ngIf="filterMaxPrice() < 5000000">
+                    <i class="bi bi-cash text-primary me-1"></i> Max ${{ filterMaxPrice().toLocaleString() }}
+                    <button class="pill-remove" (click)="filterMaxPrice.set(5000000)">×</button>
+                </span>
+                <span class="filter-pill" *ngIf="filterMinBeds() > 0">
+                    <i class="bi bi-house text-primary me-1"></i> {{ filterMinBeds() }}+ Beds
+                    <button class="pill-remove" (click)="filterMinBeds.set(0)">×</button>
+                </span>
+                <button class="btn-clear-all ms-2" (click)="clearAllFilters()">Clear All</button>
             </div>
         </div>
 
         <div class="list-grid-container bg-white">
 
-            <!-- 🧼 BENTO FILTERS SIDEBAR -->
+            <!-- 🧼 FILTER SIDEBAR -->
             <div class="filter-sidebar reveal-up">
+
+                <!-- Sort By -->
                 <div class="filter-group">
-                    <label class="filter-label">Category</label>
-                    <div class="d-flex flex-wrap gap-2">
-                        <button class="btn btn-sharp active">All</button>
-                        <button class="btn btn-sharp">Sale</button>
-                        <button class="btn btn-sharp">Rent</button>
+                    <label class="filter-label">Sort By</label>
+                    <div class="sort-chip-grid">
+                        <button class="sort-chip" [class.active]="sortBy() === 'newest'"
+                            (click)="sortBy.set('newest'); onFilterChange()">
+                            <i class="bi bi-clock me-1"></i> Newest
+                        </button>
+                        <button class="sort-chip" [class.active]="sortBy() === 'price_asc'"
+                            (click)="sortBy.set('price_asc'); onFilterChange()">
+                            <i class="bi bi-sort-numeric-up me-1"></i> Price ↑
+                        </button>
+                        <button class="sort-chip" [class.active]="sortBy() === 'price_desc'"
+                            (click)="sortBy.set('price_desc'); onFilterChange()">
+                            <i class="bi bi-sort-numeric-down me-1"></i> Price ↓
+                        </button>
+                        <button class="sort-chip" [class.active]="sortBy() === 'size_desc'"
+                            (click)="sortBy.set('size_desc'); onFilterChange()">
+                            <i class="bi bi-arrows-fullscreen me-1"></i> Largest
+                        </button>
                     </div>
                 </div>
 
+                <!-- Province -->
+                <div class="filter-group">
+                    <label class="filter-label">Province / City</label>
+                    <select class="form-select rounded-0 border-dark-blue shadow-none fw-bold"
+                        [value]="filterProvince()" (change)="setProvince($any($event.target).value)">
+                        <option value="">All Provinces</option>
+                        <option *ngFor="let p of provinces" [value]="p">{{ p }}</option>
+                    </select>
+                </div>
+
+                <!-- District (cascades from Province) -->
+                <div class="filter-group" [class.opacity-50]="!filterProvince()">
+                    <label class="filter-label">District Area</label>
+                    <select class="form-select rounded-0 border-dark-blue shadow-none fw-bold"
+                        [value]="filterDistrict()"
+                        (change)="filterDistrict.set($any($event.target).value); onFilterChange()"
+                        [disabled]="!filterProvince()">
+                        <option value="">All Districts</option>
+                        <option *ngFor="let d of filteredDistricts()" [value]="d">{{ d }}</option>
+                    </select>
+                </div>
+
+                <!-- Property Type -->
                 <div class="filter-group">
                     <label class="filter-label">Property Type</label>
-                    <div class="d-flex flex-column gap-3">
-                        <div class="form-check custom-check">
-                            <input class="form-check-input rounded-0" type="checkbox" id="condo" checked>
-                            <label class="form-check-label fw-bold" for="condo">Condominium</label>
-                        </div>
-                        <div class="form-check custom-check">
-                            <input class="form-check-input rounded-0" type="checkbox" id="land">
-                            <label class="form-check-label fw-bold" for="land">Premium Land</label>
-                        </div>
-                        <div class="form-check custom-check">
-                            <input class="form-check-input rounded-0" type="checkbox" id="villa">
-                            <label class="form-check-label fw-bold" for="villa">Modern Villa</label>
-                        </div>
-                        <div class="form-check custom-check">
-                            <input class="form-check-input rounded-0" type="checkbox" id="borey">
-                            <label class="form-check-label fw-bold" for="borey">New Borey</label>
-                        </div>
+                    <div class="type-chip-grid">
+                        <button class="type-chip" [class.active]="filterType() === ''"
+                            (click)="filterType.set(''); onFilterChange()">All</button>
+                        <button class="type-chip" *ngFor="let t of propertyTypes" [class.active]="filterType() === t"
+                            (click)="filterType.set(t); onFilterChange()">{{ t }}</button>
                     </div>
                 </div>
 
+                <!-- Bedrooms -->
                 <div class="filter-group">
-                    <label class="filter-label">Price Range</label>
-                    <div class="price-input-box mb-3">
-                        <span class="fs-4 fw-bold text-dark-blue">$10,000 - $1M+</span>
+                    <label class="filter-label">Min. Bedrooms</label>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button class="bed-btn" *ngFor="let b of bedroomOptions" [class.active]="filterMinBeds() === b"
+                            (click)="filterMinBeds.set(b); onFilterChange()">
+                            {{ b === 0 ? 'Any' : b + '+' }}
+                        </button>
                     </div>
-                    <input type="range" class="form-range" min="0" max="1000000" step="10000">
                 </div>
 
-                <button class="btn btn-dark w-100 py-3 rounded-0 border-0 fw-bold ls-1 mt-4">APPLY FILTERS</button>
+                <!-- Max Price -->
+                <div class="filter-group">
+                    <label class="filter-label">
+                        Max Price
+                        <span class="text-primary fw-bold ms-2">
+                            {{ filterMaxPrice() === 5000000 ? 'No Limit' : '$' + filterMaxPrice().toLocaleString() }}
+                        </span>
+                    </label>
+                    <input type="range" class="price-range-slider w-100 mt-2" min="10000" max="5000000" step="10000"
+                        [value]="filterMaxPrice()"
+                        (input)="filterMaxPrice.set(+$any($event.target).value); onFilterChange()">
+                    <div class="d-flex justify-content-between mt-1">
+                        <span class="text-muted small fw-bold">$10k</span>
+                        <span class="text-muted small fw-bold">$5M+</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-dark w-100 py-3 rounded-0 border-0 fw-bold ls-1 mt-2"
+                    (click)="clearAllFilters()">
+                    RESET ALL FILTERS
+                </button>
             </div>
 
-            <!-- 🏠 PROPERTY RESULTS GRID -->
+            <!-- 🏠 PROPERTY RESULTS -->
             <div class="property-results reveal-up delay-1">
-                @for (property of dummyProperties; track property.id) {
-                <div class="property-tile">
+
+                <!-- Results info -->
+                <div class="results-meta d-flex align-items-center justify-content-between mb-4">
+                    <span class="text-muted fw-bold">
+                        Showing
+                        <span class="text-dark-blue fw-black">{{ paginatedProperties().length }}</span>
+                        of
+                        <span class="text-dark-blue fw-black">{{ filteredProperties().length }}</span>
+                        properties
+                    </span>
+                    <span class="text-muted small fw-bold">
+                        Page {{ currentPage() }} / {{ totalPages() || 1 }}
+                    </span>
+                </div>
+
+                <!-- Empty state -->
+                <div *ngIf="filteredProperties().length === 0"
+                    class="empty-state d-flex flex-column align-items-center justify-content-center py-5 text-center">
+                    <i class="bi bi-house-x text-muted" style="font-size: 4rem;"></i>
+                    <h4 class="fw-bold text-muted mt-3 text-uppercase">No Properties Found</h4>
+                    <p class="text-muted fw-bold mb-4">Try adjusting your filters or clearing the search.</p>
+                    <button class="btn btn-dark-blue rounded-0 px-4 py-3 fw-bold ls-1" (click)="clearAllFilters()">
+                        CLEAR FILTERS
+                    </button>
+                </div>
+
+                <!-- Property Cards -->
+                <div class="property-tile" *ngFor="let property of paginatedProperties()">
                     <div class="tile-img-box">
                         <img [src]="property.image" class="tile-img" [alt]="property.title">
+                        <!-- Listing badge -->
+                        <div class="listing-badge" [class.badge-sale]="property.listing_type === 'For Sale'"
+                            [class.badge-rent]="property.listing_type === 'For Rent'">
+                            {{ property.listing_type }}
+                        </div>
+                        <!-- Type badge -->
                         <div class="floating-label bg-white text-dark-blue px-3 py-2 position-absolute"
-                            style="top:20px; right:20px;">
-                            {{ property.type }}
+                            style="top: 16px; right: 16px; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;">
+                            {{ property.property_type }}
                         </div>
                     </div>
                     <div class="tile-content">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="tile-price">${{ property.price | number }}</span>
-                            <span
-                                class="badge bg-primary-soft text-primary px-3 py-2 border border-primary rounded-0">{{
-                                property.category }}</span>
+                        <!-- ID + Date row -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="property-id-badge">{{ property.property_id }}</span>
+                            <span class="text-muted small fw-bold opacity-50">{{ property.updated_time }}</span>
+                        </div>
+                        <!-- Price -->
+                        <div class="tile-price mb-2">
+                            <span *ngIf="property.price">${{ property.price | number }}</span>
+                            <span *ngIf="property.rent_per_month">
+                                ${{ property.rent_per_month | number }}<span class="small text-muted fw-bold">/mo</span>
+                            </span>
+                            <span *ngIf="property.rent_per_year" class="tile-price-sub ms-2 small">
+                                (${{ property.rent_per_year | number }}/yr)
+                            </span>
                         </div>
                         <h3 class="tile-title text-uppercase">{{ property.title }}</h3>
                         <p class="tile-loc">
-                            <i class="bi bi-geo-alt-fill text-primary me-2"></i> {{ property.location }}
+                            <i class="bi bi-geo-alt-fill text-primary me-1"></i> {{ property.location }}
                         </p>
-
+                        <p class="tile-desc">{{ property.description }}</p>
                         <div class="tile-meta">
-                            <div class="meta-item"><i class="bi bi-house"></i> {{ property.beds }} Beds</div>
-                            <div class="meta-item"><i class="bi bi-droplet"></i> {{ property.baths }} Baths</div>
-                            <div class="meta-item"><i class="bi bi-arrows-fullscreen"></i> {{ property.sqft }}m²</div>
+                            <div class="meta-item" *ngIf="property.bedrooms_count > 0">
+                                <i class="bi bi-house"></i> {{ property.bedrooms_count }} Bed
+                            </div>
+                            <div class="meta-item" *ngIf="property.bathroom_count > 0">
+                                <i class="bi bi-droplet"></i> {{ property.bathroom_count }} Bath
+                            </div>
+                            <div class="meta-item">
+                                <i class="bi bi-arrows-fullscreen"></i> {{ property.unit_size_sqm }}m²
+                            </div>
+                            <div class="meta-item" *ngIf="property.floor">
+                                <i class="bi bi-building"></i> Floor {{ property.floor }}
+                            </div>
                         </div>
                     </div>
                 </div>
-                }
             </div>
-
         </div>
 
-        <!-- 🔗 SHARP PAGINATION -->
-        <div
-            class="pagination-sharp border border-top-0 border-dark-blue bg-white py-5 d-flex justify-content-center reveal-up">
-            <div class="d-flex gap-3">
-                <button class="btn btn-sharp"><i class="bi bi-chevron-left"></i></button>
-                <button class="btn btn-sharp active">01</button>
-                <button class="btn btn-sharp">02</button>
-                <button class="btn btn-sharp">03</button>
-                <button class="btn btn-sharp"><i class="bi bi-chevron-right"></i></button>
+        <!-- 🔗 PAGINATION -->
+        <div class="pagination-sharp border border-top-0 border-dark-blue bg-white py-5 d-flex justify-content-center reveal-up"
+            *ngIf="totalPages() > 1">
+            <div class="d-flex gap-3 align-items-center">
+                <button class="btn btn-sharp" (click)="goToPage(currentPage() - 1)" [disabled]="currentPage() === 1">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="btn btn-sharp" *ngFor="let page of pageNumbers()" [class.active]="currentPage() === page"
+                    (click)="goToPage(page)">
+                    {{ page | number:'2.0-0' }}
+                </button>
+                <button class="btn btn-sharp" (click)="goToPage(currentPage() + 1)"
+                    [disabled]="currentPage() === totalPages()">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
             </div>
         </div>
 

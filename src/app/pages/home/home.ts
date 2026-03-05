@@ -1,7 +1,9 @@
 import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 import metadata from '../../../../data/cambodia_25_provinces_districts.json';
+
 
 interface ProvinceData {
   capital: string;
@@ -13,7 +15,7 @@ const cambodiaData: Record<string, ProvinceData> = metadata;
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -56,7 +58,7 @@ export class Home implements OnInit, OnDestroy {
   });
 
   // Property Filters
-  propertyTypes = ['All Properties', 'Condo', 'Apartment', 'Villa / House', 'Commercial', 'Lands', 'Borey'];
+  propertyTypes = ['All Properties', 'Condo', 'Apartment', 'Villa', 'House', 'Shophouse', 'Commercial', 'Lands', 'Borey'];
   budgetRanges = [
     { label: '$10k - $50k' },
     { label: '$50k - $100k' },
@@ -111,7 +113,8 @@ export class Home implements OnInit, OnDestroy {
     }
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
+
 
   ngOnInit() {
     this.animationInterval = setInterval(() => {
@@ -171,4 +174,16 @@ export class Home implements OnInit, OnDestroy {
     this.selectedBudget.set(label);
     this.showBudgetDropdown.set(false);
   }
+
+  navigateToProperties() {
+    const params: any = {};
+    if (this.selectedCity() && this.selectedCity() !== '') params['city'] = this.selectedCity();
+    if (this.selectedDistrict() && this.selectedDistrict() !== '') params['district'] = this.selectedDistrict();
+    const type = this.selectedType();
+    if (type && type !== 'All Properties') params['type'] = type;
+    const budget = this.selectedBudget();
+    if (budget && budget !== 'No Limit') params['budget'] = budget;
+    this.router.navigate(['/properties'], { queryParams: params });
+  }
 }
+

@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-lg border-bottom border-dark-blue bg-white sticky-top py-4">
     <div class="container-fluid max-width-1400">
         <a class="navbar-brand d-flex align-items-center" routerLink="/">
-            <i class="bi bi-houses-fill text-primary fs-3 me-3"></i>
-            <span class="fw-bold fs-4 text-dark-blue text-uppercase ls-1">Property Hub</span>
+            <img src="assets/images/logo.png" alt="Property Hub Logo" class="brand-logo me-3">
+            <div class="d-flex flex-column">
+                <span class="logo-text">PROPERTY <span class="text-primary">HUB.</span></span>
+                <span class="logo-subtext">EXPERTISE & TRUST</span>
+            </div>
         </a>
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNav">
@@ -10,22 +13,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item mx-lg-4">
+                <li class="nav-item mx-lg-3">
                     <a class="nav-link fw-bold text-dark-blue opacity-50 text-uppercase small ls-2 px-0" routerLink="/"
+                        [routerLinkActiveOptions]="{exact: true}"
                         routerLinkActive="opacity-100 border-bottom border-primary active-link">HOME</a>
                 </li>
-                <li class="nav-item mx-lg-4">
+                <li class="nav-item mx-lg-3">
                     <a class="nav-link fw-bold text-dark-blue opacity-50 text-uppercase small ls-2 px-0"
                         routerLink="/properties"
                         routerLinkActive="opacity-100 border-bottom border-primary active-link">PROPERTIES</a>
                 </li>
-                <li class="nav-item mx-lg-4">
+                <li class="nav-item mx-lg-3">
                     <a class="nav-link fw-bold text-dark-blue opacity-50 text-uppercase small ls-2 px-0"
-                        routerLink="/management"
-                        routerLinkActive="opacity-100 border-bottom border-primary active-link">MANAGEMENT</a>
+                        routerLink="/about"
+                        routerLinkActive="opacity-100 border-bottom border-primary active-link">ABOUT US</a>
                 </li>
-                <li class="nav-item ms-lg-3">
-                    <button class="btn btn-dark-blue rounded-0 px-4 py-3 fw-bold ls-1">START YOUR SEARCH</button>
+                <li class="nav-item mx-lg-3">
+                    <a class="nav-link fw-bold text-dark-blue opacity-50 text-uppercase small ls-2 px-0"
+                        routerLink="/contact"
+                        routerLinkActive="opacity-100 border-bottom border-primary active-link">CONTACT US</a>
+                </li>
+                <li class="nav-item mx-lg-3">
+                    <a class="nav-link fw-bold text-dark-blue opacity-50 text-uppercase small ls-2 px-0"
+                        routerLink="/promotion"
+                        routerLinkActive="opacity-100 border-bottom border-primary active-link">PROMOTION</a>
                 </li>
             </ul>
         </div>

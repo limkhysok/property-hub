@@ -1,0 +1,74 @@
+<div class="home-canvas py-5">
+    <div class="container-fluid max-width-1400">
+        <div class="bento-container">
+
+            <!-- 🚀 MAIN HERO BENTO -->
+            <div class="bento-item hero-tile reveal-up h-100" style="grid-column: span 12;">
+                <h1 class="hero-title">
+                    Architecting <br>
+                    <span class="text-primary title-animated-pill active">Cambodia's</span>
+                    <br>Real Estate Future.
+                </h1>
+                <p class="mt-4 lead text-muted fw-medium w-50 opacity-75">
+                    Property Hub was founded with a single mission: to create a transparent, high-efficiency ecosystem
+                    for acquiring and managing premium assets in Southeast Asia.
+                </p>
+                <div class="mt-5">
+                    <button class="btn btn-dark-blue rounded-0 px-5 py-3 fw-bold ls-1 d-inline-flex align-items-center">
+                        MEET THE BOARD <i class="bi bi-arrow-down-right ms-3 fs-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 🖼️ IMAGE BOX -->
+            <div class="bento-item reveal-up delay-1"
+                style="grid-column: span 8; height: 500px; padding: 0; position: relative;">
+                <img src="assets/images/hq.png" alt="About Us Headquarters" class="img-fluid"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="cat-overlay d-flex flex-column justify-content-end p-5"
+                    style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(17, 24, 39, 0.9), transparent);">
+                    <h3 class="text-white fw-bold fs-1 m-0 text-uppercase">Our Headquarters</h3>
+                    <span class="text-white-50 small ls-2 fw-bold">PHNOM PENH, CAMBODIA</span>
+                </div>
+            </div>
+
+            <!-- 📊 STATS BOX: TEAM -->
+            <div class="bento-item reveal-up delay-2 bg-light d-flex flex-column justify-content-center align-items-center text-center p-5"
+                style="grid-column: span 4;">
+                <div class="text-primary fs-1 fw-bold" style="font-size: 4rem !important;">150+</div>
+                <div class="text-dark-blue fw-bold text-uppercase ls-1 mt-2 fs-5">Elite Professionals</div>
+                <p class="text-muted small mt-3 fw-bold w-75">Dedicated agents, legal consultants, and market analysts
+                    at your service.</p>
+            </div>
+
+        </div> <!-- End of first Bento Container -->
+
+        <!-- 🏢 EXECUTIVE TEAM BENTO SECTION -->
+        <div class="bento-container mt-5">
+            <!-- Section Header -->
+            <div class="bento-item bg-dark-blue text-white reveal-up" style="grid-column: span 12; padding: 40px 50px;">
+                <h2 class="fw-bold fs-1 m-0 text-uppercase ls-1">The Board of Directors</h2>
+                <p class="text-white-50 mt-2 mb-0 fw-bold w-50">The visionaries architecting Property Hub's elite
+                    acquisition network.</p>
+            </div>
+
+            <!-- Team Member Cards -->
+            <div class="bento-item team-card reveal-up delay-1 p-0 position-relative overflow-hidden"
+                *ngFor="let member of teamMembers" style="grid-column: span 4; height: 450px;">
+                <img [src]="member.image" [alt]="member.name" class="team-img"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+
+                <!-- Info Overlay -->
+                <div class="team-overlay d-flex flex-column justify-content-end p-4"
+                    style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(17, 24, 39, 0.95) 10%, transparent 60%);">
+                    <span
+                        class="badge bg-primary rounded-0 px-2 py-1 align-self-start mb-3 ls-1 border border-primary text-white"
+                        style="font-size: 0.65rem;">ID: {{ member.id }}</span>
+                    <h4 class="text-white fw-bold fs-3 mb-1 text-uppercase">{{ member.name }}</h4>
+                    <span class="text-primary fw-bold ls-1 small">{{ member.position }}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
