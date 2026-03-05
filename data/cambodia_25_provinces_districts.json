@@ -1,0 +1,323 @@
+{
+  "Banteay Meanchey": {
+    "capital": "Serei Saophoan",
+    "districts": [
+      "Mongkol Borei",
+      "Phnum Srok",
+      "Preah Netr Preah",
+      "Ou Chrov",
+      "Thma Puok",
+      "Svay Chek",
+      "Malai",
+      "Poipet",
+      "Serei Saophoan"
+    ]
+  },
+  "Battambang": {
+    "capital": "Battambang",
+    "districts": [
+      "Banan",
+      "Thma Koul",
+      "Bavel",
+      "Ek Phnom",
+      "Moung Ruessei",
+      "Rotanak Mondol",
+      "Sangkae",
+      "Samlout",
+      "Sampov Loun",
+      "Phnum Proek",
+      "Kamrieng",
+      "Koas Krala",
+      "Rukhak Kiri",
+      "Battambang"
+    ]
+  },
+  "Kampong Cham": {
+    "capital": "Kampong Cham",
+    "districts": [
+      "Batheay",
+      "Chamkar Leu",
+      "Cheung Prey",
+      "Kampong Siem",
+      "Kang Meas",
+      "Koh Sotin",
+      "Prey Chhor",
+      "Srey Santhor",
+      "Stueng Trang",
+      "Kampong Cham"
+    ]
+  },
+  "Kampong Chhnang": {
+    "capital": "Kampong Chhnang",
+    "districts": [
+      "Baribour",
+      "Chol Kiri",
+      "Kampong Leaeng",
+      "Kampong Tralach",
+      "Rolea B’ier",
+      "Sameakki Mean Chey",
+      "Tuek Phos",
+      "Kampong Chhnang"
+    ]
+  },
+  "Kampong Speu": {
+    "capital": "Chbar Mon",
+    "districts": [
+      "Aoral",
+      "Baset",
+      "Kong Pisei",
+      "Oudong",
+      "Phnom Sruoch",
+      "Samraong Tong",
+      "Thpong",
+      "Chbar Mon"
+    ]
+  },
+  "Kampong Thom": {
+    "capital": "Stueng Saen",
+    "districts": [
+      "Baray",
+      "Kampong Svay",
+      "Prasat Balangk",
+      "Prasat Sambor",
+      "Sandan",
+      "Santuk",
+      "Stoung",
+      "Taing Kouk",
+      "Stueng Saen"
+    ]
+  },
+  "Kampot": {
+    "capital": "Kampot",
+    "districts": [
+      "Angkor Chey",
+      "Banteay Meas",
+      "Chhuk",
+      "Chum Kiri",
+      "Dang Tong",
+      "Kampong Trach",
+      "Teuk Chhou",
+      "Kampot"
+    ]
+  },
+  "Kandal": {
+    "capital": "Ta Khmau",
+    "districts": [
+      "Angk Snuol",
+      "Kandal Stueng",
+      "Kaoh Thum",
+      "Khsach Kandal",
+      "Leuk Daek",
+      "Lvea Aem",
+      "Mukh Kampul",
+      "Ponhea Lueu",
+      "S’ang",
+      "Ta Khmau"
+    ]
+  },
+  "Kep": {
+    "capital": "Kep",
+    "districts": [
+      "Damnak Changaeur",
+      "Kep"
+    ]
+  },
+  "Koh Kong": {
+    "capital": "Khemarak Phoumin",
+    "districts": [
+      "Botum Sakor",
+      "Kiri Sakor",
+      "Koh Kong",
+      "Mondol Seima",
+      "Srae Ambel",
+      "Thma Bang",
+      "Khemarak Phoumin"
+    ]
+  },
+  "Kratie": {
+    "capital": "Kratie",
+    "districts": [
+      "Chhloung",
+      "Kratie",
+      "Prek Prasab",
+      "Sambour",
+      "Snuol"
+    ]
+  },
+  "Mondulkiri": {
+    "capital": "Sen Monorom",
+    "districts": [
+      "Kaev Seima",
+      "Kaoh Nheaek",
+      "Ou Reang",
+      "Pech Chreada",
+      "Sen Monorom"
+    ]
+  },
+  "Oddar Meanchey": {
+    "capital": "Samraong",
+    "districts": [
+      "Anlong Veaeng",
+      "Banteay Ampil",
+      "Chong Kal",
+      "Samraong",
+      "Trapeang Prasat"
+    ]
+  },
+  "Pailin": {
+    "capital": "Pailin",
+    "districts": [
+      "Pailin",
+      "Sala Krau"
+    ]
+  },
+  "Preah Vihear": {
+    "capital": "Preah Vihear",
+    "districts": [
+      "Chey Saen",
+      "Chhaeb",
+      "Choam Khsant",
+      "Kulen",
+      "Roveang",
+      "Sangkom Thmei",
+      "Tbaeng Mean Chey"
+    ]
+  },
+  "Prey Veng": {
+    "capital": "Prey Veng",
+    "districts": [
+      "Ba Phnum",
+      "Kamchay Mear",
+      "Kampong Leav",
+      "Kampong Trabek",
+      "Peam Chor",
+      "Peam Ro",
+      "Pea Reang",
+      "Preah Sdach",
+      "Prey Veng",
+      "Pur Rieng",
+      "Sithor Kandal",
+      "Svay Antor"
+    ]
+  },
+  "Pursat": {
+    "capital": "Pursat",
+    "districts": [
+      "Bakan",
+      "Kandieng",
+      "Krakor",
+      "Phnom Kravanh",
+      "Veal Veaeng",
+      "Talou Sen Chey"
+    ]
+  },
+  "Ratanakiri": {
+    "capital": "Banlung",
+    "districts": [
+      "Andoung Meas",
+      "Banlung",
+      "Bar Kaev",
+      "Koun Mom",
+      "Lumphat",
+      "Ou Chum",
+      "Ou Ya Dav",
+      "Ta Veaeng",
+      "Veun Sai"
+    ]
+  },
+  "Siem Reap": {
+    "capital": "Siem Reap",
+    "districts": [
+      "Angkor Chum",
+      "Angkor Thom",
+      "Banteay Srei",
+      "Chi Kraeng",
+      "Kralanh",
+      "Puok",
+      "Prasat Bakong",
+      "Siem Reap",
+      "Soutr Nikom",
+      "Srei Snam",
+      "Svay Leu",
+      "Varin"
+    ]
+  },
+  "Preah Sihanouk": {
+    "capital": "Sihanoukville",
+    "districts": [
+      "Prey Nob",
+      "Kampong Seila",
+      "Stueng Hav",
+      "Sihanoukville"
+    ]
+  },
+  "Stung Treng": {
+    "capital": "Stung Treng",
+    "districts": [
+      "Borei O'Svay Sen Chey",
+      "Siem Pang",
+      "Siem Bok",
+      "Sesan",
+      "Stung Treng",
+      "Thala Barivat"
+    ]
+  },
+  "Svay Rieng": {
+    "capital": "Svay Rieng",
+    "districts": [
+      "Bavet",
+      "Chanthrea",
+      "Kampong Rou",
+      "Romeas Haek",
+      "Rumduol",
+      "Svay Chrum",
+      "Svay Rieng"
+    ]
+  },
+  "Takeo": {
+    "capital": "Doun Kaev",
+    "districts": [
+      "Angkor Borei",
+      "Bati",
+      "Borei Cholsar",
+      "Kiri Vong",
+      "Koh Andaet",
+      "Prey Kabas",
+      "Samraong",
+      "Tram Kak",
+      "Treang",
+      "Doun Kaev"
+    ]
+  },
+  "Tboung Khmum": {
+    "capital": "Suong",
+    "districts": [
+      "Dambae",
+      "Krouch Chhmar",
+      "Memot",
+      "Ou Reang Ov",
+      "Ponhea Kraek",
+      "Tboung Khmum",
+      "Suong"
+    ]
+  },
+  "Phnom Penh": {
+    "capital": "Phnom Penh",
+    "districts": [
+      "Chamkar Mon",
+      "Daun Penh",
+      "Prampir Meakkakra",
+      "Tuol Kouk",
+      "Dangkao",
+      "Mean Chey",
+      "Russey Keo",
+      "Sen Sok",
+      "Por Sen Chey",
+      "Chroy Changvar",
+      "Prek Pnov",
+      "Chbar Ampov",
+      "Boeng Keng Kang",
+      "Kamboul"
+    ]
+  }
+}

@@ -1,136 +1,124 @@
-<div class="container py-5">
-    <div class="row align-items-center mb-5 mt-4">
-        <div class="col-md-6 text-center text-md-start">
-            <h1 class="fw-bold display-5 mb-2">Explore <span class="text-gradient">Properties</span></h1>
-            <p class="text-secondary mb-0">Discover your next home from our curated collection.</p>
-        </div>
-        <div class="col-md-6 mt-4 mt-md-0 d-flex justify-content-center justify-content-md-end gap-3">
-            <div class="input-group max-width-300 glass-card rounded-pill px-3">
-                <span class="input-group-text bg-transparent border-0"><i class="bi bi-search text-primary"></i></span>
-                <input type="text" class="form-control bg-transparent border-0 shadow-none ps-0"
-                    placeholder="Search locality...">
-            </div>
-            <button class="btn btn-outline-primary rounded-pill border-2 px-4 d-flex align-items-center">
-                <i class="bi bi-sliders me-2"></i> Filters
-            </button>
-        </div>
-    </div>
+<div class="property-list-canvas py-5">
+    <div class="container-fluid max-width-1400 px-0">
 
-    <div class="row">
-        <!-- Filter Sidebar -->
-        <div class="col-lg-3 d-none d-lg-block">
-            <div class="glass-card p-4 rounded-4 sticky-top offset-navbar">
-                <h5 class="fw-bold mb-4">Filters</h5>
-
-                <div class="mb-4">
-                    <label class="form-label small fw-bold text-uppercase text-secondary ls-1">Category</label>
-                    <div class="d-flex flex-wrap gap-2">
-                        <button class="btn btn-sm btn-outline-secondary active rounded-pill">All</button>
-                        <button class="btn btn-sm btn-outline-secondary rounded-pill">For Sale</button>
-                        <button class="btn btn-sm btn-outline-secondary rounded-pill">For Rent</button>
-                    </div>
+        <!-- 🚀 EXPLORE HEADER -->
+        <div class="list-header bg-white mb-0 reveal-up">
+            <div class="row align-items-end">
+                <div class="col-lg-6">
+                    <span
+                        class="badge bg-primary-soft text-primary px-3 py-2 mb-3 rounded-0 border border-primary">PREMIUM
+                        SELECTION</span>
+                    <h1 class="display-3 fw-bold mb-0 text-dark-blue">Explore <span
+                            class="text-primary italic">Properties</span></h1>
+                    <p class="text-muted fs-5 mt-4 opacity-75 mb-0">Discover your next future property from our curated
+                        collection in Cambodia.</p>
                 </div>
-
-                <div class="mb-4">
-                    <label class="form-label small fw-bold text-uppercase text-secondary ls-1">Property Type</label>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" id="house" checked>
-                        <label class="form-check-label" for="house">House</label>
-                    </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" id="apartment">
-                        <label class="form-check-label" for="apartment">Apartment</label>
-                    </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" id="villa">
-                        <label class="form-check-label" for="villa">Villa</label>
-                    </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" id="office">
-                        <label class="form-check-label" for="office">Office</label>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <label class="form-label small fw-bold text-uppercase text-secondary ls-1">Price Range</label>
-                    <input type="range" class="form-range" min="0" max="1000000" step="50000">
-                    <div class="d-flex justify-content-between small text-secondary mt-1">
-                        <span>$0</span>
-                        <span>$1M+</span>
-                    </div>
-                </div>
-
-                <button class="btn btn-primary w-100 rounded-pill py-2 fw-semibold mt-2">Apply Filters</button>
-            </div>
-        </div>
-
-        <!-- Property Grid -->
-        <div class="col-lg-9">
-            <div class="row g-4">
-                @for (property of dummyProperties; track property.id) {
-                <div class="col-md-6 col-xl-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden property-card transition">
-                        <div class="position-relative">
-                            <img [src]="property.image" class="card-img-top property-image" [alt]="property.title">
-                            <div
-                                class="position-absolute top-0 start-0 m-3 p-1 px-3 bg-white rounded-pill shadow-sm small fw-bold text-primary">
-                                {{ property.type }}
-                            </div>
-                            <button
-                                class="position-absolute top-0 end-0 m-3 btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center shadow-sm wh-35">
-                                <i class="bi bi-heart text-danger"></i>
-                            </button>
+                <div class="col-lg-6 text-lg-end mt-4">
+                    <div class="d-inline-flex gap-3 bg-light p-2 border border-dark-blue">
+                        <div class="input-group search-input-sharp">
+                            <span class="input-group-text bg-transparent border-0"><i
+                                    class="bi bi-search text-dark-blue"></i></span>
+                            <input type="text" class="form-control bg-transparent border-0 shadow-none ps-0 fw-bold"
+                                placeholder="Search locality...">
                         </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h4 class="fw-bold text-primary mb-0">${{ property.price | number }}</h4>
-                                <span class="badge bg-light text-secondary rounded-pill px-3 py-2 border small">{{
-                                    property.category }}</span>
-                            </div>
-                            <h5 class="fw-bold mb-2 text-dark">{{ property.title }}</h5>
-                            <p class="text-secondary small mb-3"><i class="bi bi-geo-alt me-1"></i> {{ property.location
-                                }}</p>
-                            <div class="d-flex justify-content-between border-top pt-3">
-                                <div class="text-secondary small d-flex align-items-center"><i
-                                        class="bi bi-lamp me-1"></i> {{ property.beds }} Beds</div>
-                                <div class="text-secondary small d-flex align-items-center"><i
-                                        class="bi bi-droplet me-1"></i> {{ property.baths }} Baths</div>
-                                <div class="text-secondary small d-flex align-items-center"><i
-                                        class="bi bi-aspect-ratio me-1"></i> {{ property.sqft }} sqft</div>
-                            </div>
+                        <button class="btn btn-sharp active">Filters <i class="bi bi-sliders ms-2"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-grid-container bg-white">
+
+            <!-- 🧼 BENTO FILTERS SIDEBAR -->
+            <div class="filter-sidebar reveal-up">
+                <div class="filter-group">
+                    <label class="filter-label">Category</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-sharp active">All</button>
+                        <button class="btn btn-sharp">Sale</button>
+                        <button class="btn btn-sharp">Rent</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Property Type</label>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="form-check custom-check">
+                            <input class="form-check-input rounded-0" type="checkbox" id="condo" checked>
+                            <label class="form-check-label fw-bold" for="condo">Condominium</label>
+                        </div>
+                        <div class="form-check custom-check">
+                            <input class="form-check-input rounded-0" type="checkbox" id="land">
+                            <label class="form-check-label fw-bold" for="land">Premium Land</label>
+                        </div>
+                        <div class="form-check custom-check">
+                            <input class="form-check-input rounded-0" type="checkbox" id="villa">
+                            <label class="form-check-label fw-bold" for="villa">Modern Villa</label>
+                        </div>
+                        <div class="form-check custom-check">
+                            <input class="form-check-input rounded-0" type="checkbox" id="borey">
+                            <label class="form-check-label fw-bold" for="borey">New Borey</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Price Range</label>
+                    <div class="price-input-box mb-3">
+                        <span class="fs-4 fw-bold text-dark-blue">$10,000 - $1M+</span>
+                    </div>
+                    <input type="range" class="form-range" min="0" max="1000000" step="10000">
+                </div>
+
+                <button class="btn btn-dark w-100 py-3 rounded-0 border-0 fw-bold ls-1 mt-4">APPLY FILTERS</button>
+            </div>
+
+            <!-- 🏠 PROPERTY RESULTS GRID -->
+            <div class="property-results reveal-up delay-1">
+                @for (property of dummyProperties; track property.id) {
+                <div class="property-tile">
+                    <div class="tile-img-box">
+                        <img [src]="property.image" class="tile-img" [alt]="property.title">
+                        <div class="floating-label bg-white text-dark-blue px-3 py-2 position-absolute"
+                            style="top:20px; right:20px;">
+                            {{ property.type }}
+                        </div>
+                    </div>
+                    <div class="tile-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="tile-price">${{ property.price | number }}</span>
+                            <span
+                                class="badge bg-primary-soft text-primary px-3 py-2 border border-primary rounded-0">{{
+                                property.category }}</span>
+                        </div>
+                        <h3 class="tile-title text-uppercase">{{ property.title }}</h3>
+                        <p class="tile-loc">
+                            <i class="bi bi-geo-alt-fill text-primary me-2"></i> {{ property.location }}
+                        </p>
+
+                        <div class="tile-meta">
+                            <div class="meta-item"><i class="bi bi-house"></i> {{ property.beds }} Beds</div>
+                            <div class="meta-item"><i class="bi bi-droplet"></i> {{ property.baths }} Baths</div>
+                            <div class="meta-item"><i class="bi bi-arrows-fullscreen"></i> {{ property.sqft }}m²</div>
                         </div>
                     </div>
                 </div>
                 }
             </div>
 
-            <!-- Pagination -->
-            <nav class="mt-5 d-flex justify-content-center">
-                <ul class="pagination pagination-lg gap-2">
-                    <li class="page-item disabled">
-                        <a
-                            class="page-link rounded-circle border-0 wh-50 d-flex align-items-center justify-content-center bg-light text-secondary"><i
-                                class="bi bi-chevron-left"></i></a>
-                    </li>
-                    <li class="page-item active">
-                        <a
-                            class="page-link rounded-circle border-0 wh-50 d-flex align-items-center justify-content-center">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a
-                            class="page-link rounded-circle border-0 wh-50 d-flex align-items-center justify-content-center bg-white text-dark shadow-sm">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a
-                            class="page-link rounded-circle border-0 wh-50 d-flex align-items-center justify-content-center bg-white text-dark shadow-sm">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a
-                            class="page-link rounded-circle border-0 wh-50 d-flex align-items-center justify-content-center bg-white text-dark shadow-sm"><i
-                                class="bi bi-chevron-right"></i></a>
-                    </li>
-                </ul>
-            </nav>
         </div>
+
+        <!-- 🔗 SHARP PAGINATION -->
+        <div
+            class="pagination-sharp border border-top-0 border-dark-blue bg-white py-5 d-flex justify-content-center reveal-up">
+            <div class="d-flex gap-3">
+                <button class="btn btn-sharp"><i class="bi bi-chevron-left"></i></button>
+                <button class="btn btn-sharp active">01</button>
+                <button class="btn btn-sharp">02</button>
+                <button class="btn btn-sharp">03</button>
+                <button class="btn btn-sharp"><i class="bi bi-chevron-right"></i></button>
+            </div>
+        </div>
+
     </div>
 </div>

@@ -1,73 +1,152 @@
-.ls-1 {
-    letter-spacing: 1.5px;
+:root {
+    --primary-color: #2563EB;
+    --dark-blue: #111827;
+    --white: #ffffff;
+    --text-muted: #64748B;
 }
 
-.icon-box {
-    width: 50px;
-    height: 50px;
+.management-canvas {
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'DM Sans', sans-serif;
 }
 
-.wh-30 {
-    width: 30px;
-    height: 30px;
+/* 🧱 SHARP ARCHITECTURAL DASHBOARD */
+.dashboard-header {
+    border: 1px solid var(--dark-blue);
+    padding: 60px;
+    margin-bottom: -1px;
 }
 
-.wh-50 {
-    width: 50px;
-    height: 50px;
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-left: 1px solid var(--dark-blue);
+    border-top: 1px solid var(--dark-blue);
 }
 
-.table-hover tbody tr:hover {
-    background-color: rgba(37, 99, 235, 0.02);
-}
-
-.table th {
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-}
-
-.glass-card {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-.badge {
-    font-weight: 600;
-    font-size: 0.75rem;
-}
-
-.bg-primary-subtle {
-    background-color: rgba(37, 99, 235, 0.1) !important;
-}
-
-.bg-success-subtle {
-    background-color: rgba(25, 135, 84, 0.1) !important;
-}
-
-.bg-warning-subtle {
-    background-color: rgba(255, 193, 7, 0.1) !important;
-}
-
-.bg-info-subtle {
-    background-color: rgba(13, 202, 240, 0.1) !important;
-}
-
-.text-success {
-    color: #198754 !important;
-}
-
-.text-warning {
-    color: #f59e0b !important;
-}
-
-.text-info {
-    color: #0dcaf0 !important;
-}
-
-.pagination .page-link {
-    font-size: 0.8rem;
+.stat-box {
+    border-right: 1px solid var(--dark-blue);
+    border-bottom: 1px solid var(--dark-blue);
+    padding: 40px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.stat-box:hover {
+    background-color: #f8fafc;
+}
+
+.stat-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.stat-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--dark-blue);
+    line-height: 1;
+}
+
+.stat-change {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/* 📊 BENTO TABLE SYSTEM */
+.table-container-sharp {
+    border-left: 1px solid var(--dark-blue);
+    border-right: 1px solid var(--dark-blue);
+    border-bottom: 1px solid var(--dark-blue);
+    background: white;
+}
+
+.table-header-sharp {
+    padding: 30px 40px;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.sharp-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sharp-table th {
+    text-align: left;
+    padding: 20px 40px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.sharp-table td {
+    padding: 25px 40px;
+    border-bottom: 1px solid rgba(17, 24, 39, 0.05);
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.sharp-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* 🖱️ ACTION BUTTONS (SHARP) */
+.action-btn-sharp {
+    border: 1px solid var(--dark-blue);
+    background: transparent;
+    border-radius: 0 !important;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+}
+
+.action-btn-sharp:hover {
+    background: var(--dark-blue);
+    color: white;
+}
+
+.status-badge-sharp {
+    border: 1px solid var(--dark-blue);
+    padding: 5px 15px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header {
+        padding: 40px 20px;
+    }
+
+    .stat-box {
+        padding: 30px 20px;
+    }
 }

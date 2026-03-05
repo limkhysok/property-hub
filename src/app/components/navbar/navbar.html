@@ -1,28 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-light glass-card sticky-top py-3">
-    <div class="container">
+<nav class="navbar navbar-expand-lg border-bottom border-dark-blue bg-white sticky-top py-4">
+    <div class="container-fluid max-width-1400">
         <a class="navbar-brand d-flex align-items-center" routerLink="/">
-            <i class="bi bi-houses-fill text-primary fs-3 me-2"></i>
-            <span class="fw-bold fs-4 text-gradient">Property Hub</span>
+            <i class="bi bi-houses-fill text-primary fs-3 me-3"></i>
+            <span class="fw-bold fs-4 text-dark-blue text-uppercase ls-1">Property Hub</span>
         </a>
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+            <span class="bi bi-list fs-2 text-dark-blue"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item mx-2">
-                    <a class="nav-link fw-medium" routerLink="/" routerLinkActive="text-primary">Home</a>
+                <li class="nav-item mx-lg-4">
+                    <a class="nav-link fw-bold text-dark-blue opacity-50 text-uppercase small ls-2 px-0" routerLink="/"
+                        routerLinkActive="opacity-100 border-bottom border-primary active-link">HOME</a>
                 </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link fw-medium" routerLink="/properties"
-                        routerLinkActive="text-primary">Properties</a>
+                <li class="nav-item mx-lg-4">
+                    <a class="nav-link fw-bold text-dark-blue opacity-50 text-uppercase small ls-2 px-0"
+                        routerLink="/properties"
+                        routerLinkActive="opacity-100 border-bottom border-primary active-link">PROPERTIES</a>
                 </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link fw-medium" routerLink="/management"
-                        routerLinkActive="text-primary">Management</a>
+                <li class="nav-item mx-lg-4">
+                    <a class="nav-link fw-bold text-dark-blue opacity-50 text-uppercase small ls-2 px-0"
+                        routerLink="/management"
+                        routerLinkActive="opacity-100 border-bottom border-primary active-link">MANAGEMENT</a>
                 </li>
                 <li class="nav-item ms-lg-3">
-                    <button class="btn btn-premium shadow-sm">Get Started</button>
+                    <button class="btn btn-dark-blue rounded-0 px-4 py-3 fw-bold ls-1">START YOUR SEARCH</button>
                 </li>
             </ul>
         </div>

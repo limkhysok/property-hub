@@ -1,51 +1,155 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #6366f1;
-    --accent-color: #f59e0b;
-    --dark-color: #1e293b;
-    --light-bg: #f8fafc;
-    --glass-bg: rgba(255, 255, 255, 0.82);
+    --primary-color: #2563EB;
+    --primary-soft: rgba(37, 99, 235, 0.05);
+    --secondary-color: #22C55E;
+    --cta-color: #F97316;
+    --dark-blue: #111827;
+    --white: #FFFFFF;
+    --bg-main: #FFFFFF;
 }
 
 body {
-    font-family: 'Outfit', sans-serif;
-    background-color: var(--light-bg);
-    color: var(--dark-color);
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--dark-blue);
     margin: 0;
     overflow-x: hidden;
 }
 
-.glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+/* 📐 GLOBAL ARCHITECTURAL SHARPNESS */
+* {
+    border-radius: 0 !important;
+    /* Force Sharp Edges Everywhere */
 }
 
-.btn-premium {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+.border-dark-blue {
+    border-color: var(--dark-blue) !important;
+}
+
+.text-dark-blue {
+    color: var(--dark-blue) !important;
+}
+
+.bg-dark-blue {
+    background-color: var(--dark-blue) !important;
+    color: var(--white);
+}
+
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+.ls-2 {
+    letter-spacing: 2px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.max-width-1400 {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 🏎️ BUTTON SYSTEM (SHARP) */
+.btn-dark-blue {
+    background-color: var(--dark-blue);
     color: white;
     border: none;
-    padding: 12px 28px;
-    border-radius: 14px;
-    font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s ease;
 }
 
-.btn-premium:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+.btn-dark-blue:hover {
+    background-color: #1f2937;
     color: white;
 }
 
-.text-gradient {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.bg-primary-soft {
+    background-color: var(--primary-soft) !important;
+}
+
+/* 🖼️ IMAGE BOX HELPERS */
+.img-box {
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--dark-blue);
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-box:hover img {
+    transform: scale(1.05);
+}
+
+/* ✨ REVEAL ENGINE CLASSES */
+.reveal-up {
+    opacity: 1;
+    /* Default to visible to prevent blank pages */
+    transform: translateY(0);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up.active {
+    animation: revealEffect 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealEffect {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+/* 📱 BORDER HELPERS FOR GRID */
+@media (min-width: 992px) {
+    .border-right-lg {
+        border-right: 1px solid var(--dark-blue);
+    }
+
+    .border-left-lg {
+        border-left: 1px solid var(--dark-blue);
+    }
+}
+
+@media (min-width: 768px) {
+    .border-left-md {
+        border-left: 1px solid var(--dark-blue);
+    }
+}
+
+/* 🖱️ NAVIGATION HELPERS */
+.active-link {
+    border-bottom: 2px solid var(--primary-color) !important;
+}
+
+.hover-opacity-100:hover {
+    opacity: 1 !important;
 }
