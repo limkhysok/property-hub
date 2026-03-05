@@ -1,5 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, DecimalPipe } from '@angular/common';
+import saleData from '../../../../data/propertiesforsale.json';
+import rentData from '../../../../data/propertiesforrent.json';
+
+interface Property {
+  property_id: string;
+  title: string;
+  image: string;
+  property_type: string;
+  province: string;
+  district: string;
+  price?: number;
+  rent_per_month?: number;
+  listing_type: string;
+  status: 'Active' | 'Pending' | 'Sold' | 'Rented';
+  views: number;
+}
 
 @Component({
   selector: 'app-property-management',
@@ -8,47 +24,36 @@ import { CommonModule, DecimalPipe } from '@angular/common';
   templateUrl: './property-management.html',
   styleUrl: './property-management.css',
 })
-export class PropertyManagement {
-  dummyListings = [
-    {
-      id: 1,
-      title: 'Modern Luxury Villa',
-      location: 'Beverly Hills, CA',
-      price: 1250000,
-      type: 'Villa',
-      status: 'Active',
-      views: 1240,
-      image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1071&q=80'
-    },
-    {
-      id: 2,
-      title: 'Urban Sky Apartment',
-      location: 'Downtown, NY',
-      price: 5500,
-      type: 'Apartment',
-      status: 'Pending',
-      views: 890,
-      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=1070&q=80'
-    },
-    {
-      id: 3,
-      title: 'The Glass House',
-      location: 'Malibu, CA',
-      price: 4500000,
-      type: 'Modern House',
-      status: 'Active',
-      views: 3400,
-      image: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80'
-    },
-    {
-      id: 4,
-      title: 'Cozy Mountain Cabin',
-      location: 'Aspen, CO',
-      price: 850000,
-      type: 'Cabin',
-      status: 'Sold',
-      views: 670,
-      image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=1071&q=80'
-    }
-  ];
+export class PropertyManagement implements OnInit {
+  myListings: Property[] = [];
+
+  ngOnInit() {
+    // Generate an agent's portfolio by picking 10 random listings
+    const mixedData = [...(saleData as any[]), ...(rentData as any[])]
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 10)
+      .map(p => {
+        // Assign a mock status and views for the management dashboard
+        const statuses = ['Active', 'Active', 'Active', 'Pending', 'Sold', 'Rented'];
+        const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+
+        let finalStatus = randomStatus;
+        if (p.listing_type === 'For Rent' && randomStatus === 'Sold') finalStatus = 'Rented';
+        if (p.listing_type === 'For Sale' && randomStatus === 'Rented') finalStatus = 'Sold';
+
+        return {
+          ...p,
+          status: finalStatus,
+          views: Math.floor(Math.random() * 5000) + 100
+        } as Property;
+      });
+
+    this.myListings = mixedData;
+  }
+
+  getDisplayPrice(p: Property): string {
+    if (p.price) return `$${p.price.toLocaleString()}`;
+    if (p.rent_per_month) return `$${p.rent_per_month.toLocaleString()}/mo`;
+    return 'N/A';
+  }
 }

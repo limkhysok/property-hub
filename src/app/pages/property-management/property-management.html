@@ -75,30 +75,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for (listing of dummyListings; track listing.id) {
+                        @for (listing of myListings; track listing.property_id) {
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="img-box me-4 border border-dark-blue p-1">
-                                        <img [src]="listing.image" width="70" height="50" style="object-fit:cover">
+                                        <img [src]="listing.image" width="70" height="50" style="object-fit:cover"
+                                            [alt]="listing.title">
                                     </div>
                                     <div>
-                                        <div class="fw-bold fs-5 text-uppercase">{{ listing.title }}</div>
-                                        <small class="text-primary fw-bold opacity-75">{{ listing.type }}</small>
+                                        <div class="fw-bold fs-6 text-uppercase"
+                                            style="max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                            {{ listing.title }}</div>
+                                        <small class="text-primary fw-bold opacity-75">{{ listing.property_type }} • {{
+                                            listing.listing_type }}</small>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <span class="opacity-75">{{ listing.location }}</span>
+                                <span class="opacity-75">{{ listing.district }}, {{ listing.province }}</span>
                             </td>
                             <td>
-                                <span class="fw-bold text-dark-blue">${{ listing.price | number }}</span>
+                                <span class="fw-bold text-dark-blue">{{ getDisplayPrice(listing) }}</span>
                             </td>
                             <td>
                                 <span class="status-badge-sharp" [ngClass]="{
                                               'border-success text-success': listing.status === 'Active',
                                               'border-warning text-warning': listing.status === 'Pending',
-                                              'border-info text-primary': listing.status === 'Sold'
+                                              'border-dark text-dark': listing.status === 'Sold' || listing.status === 'Rented'
                                           }">
                                     {{ listing.status }}
                                 </span>
@@ -106,12 +110,13 @@
                             <td>
                                 <div class="d-flex align-items-center gap-2">
                                     <i class="bi bi-eye text-primary"></i>
-                                    <span class="fw-bold">{{ listing.views }}</span>
+                                    <span class="fw-bold">{{ listing.views | number }}</span>
                                 </div>
                             </td>
                             <td class="text-end">
-                                <button class="btn action-btn-sharp"><i class="bi bi-pencil"></i></button>
-                                <button class="btn action-btn-sharp text-danger border-danger"><i
+                                <button class="btn action-btn-sharp" title="Edit Listing"><i
+                                        class="bi bi-pencil"></i></button>
+                                <button class="btn action-btn-sharp text-danger border-danger" title="Delete Listing"><i
                                         class="bi bi-trash"></i></button>
                             </td>
                         </tr>
