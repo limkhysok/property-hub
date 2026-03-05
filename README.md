@@ -23,7 +23,7 @@ Property Hub is a fully-functional real estate web application built with Angula
 - **Admin Panel**: Admin functionality to manage users and listings.
 
 ## Technologies Used
-- Angular 12
+- Angular v21
 - TypeScript
 - HTML5 & CSS3
 - Bootstrap
