@@ -61,13 +61,6 @@ npm start
 npm run build
 ```
 
-## 🌐 Deploying to Vercel
-
-1. Push the project to a GitHub repository
-2. Import into [Vercel](https://vercel.com) — it will auto-detect `vercel.json`
-3. Vercel will run `npm run build` and serve from `dist/property-hub/browser`
-4. All routes are rewritten to `index.html` for SPA deep-link support
-
 **No environment variables required** — all data is local JSON.
 
 ## 🎨 Design System
@@ -77,10 +70,22 @@ npm run build
 - **Colors**: Navy blue (`#111827`) + Electric blue (`#2563EB`)
 - **Animations**: Intersection Observer scroll reveals, CSS micro-interactions
 
-## Responsive Design  
+## 📱 Responsive Design
 
-Here are the responsive design images following the Getting Started section:
+### LAPTOP BREAKPOINT
+![Laptop View](https://github.com/limkhysok/property-hub/raw/main/images/laptop.png)
 
-| Device      | Screenshot  |
-|-------------|-------------|
-| ![Laptop](path_to_laptop_image)  | ![Tablet](path_to_tablet_image)  | ![Mobile](path_to_mobile_image)  |
+### TABLET BREAKPOINT
+![Tablet View](https://github.com/limkhysok/property-hub/raw/main/images/tablet.png)
+
+### MOBILE BREAKPOINT
+![Mobile View](https://github.com/limkhysok/property-hub/raw/main/images/mobile.png)
+
+
+## 🌐 Deploying to Vercel
+
+1. Push the project to a GitHub repository
+2. Import into [Vercel](https://vercel.com) — it will auto-detect `vercel.json`
+3. Vercel will run `npm run build` and serve from `dist/property-hub/browser`
+4. All routes are rewritten to `index.html` for SPA deep-link support
+
